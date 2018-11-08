@@ -15,10 +15,10 @@ const getCountries = async (currencyCode) => {
 const convertCurrency = async (from, to, amount) => {
   const rate = await getExchangeRate(from, to);
   const countries = await getCountries(to);
-  const convertedAmount = (amount * rate).toFixed(2);
-  return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in the following countries: ${countries.join(', ')}`;
+  const convertedAmount = (amount * rate).toFixed(2); 
+  return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in the following countries:\n ${countries.join('\n ')}`;
 };
 
-convertCurrency('USD', 'USD', 20).then((message) => {
-  console.log(message);
+convertCurrency('USD', 'EUR', 20).then((message) => {
+  console.log(message); 
 });
